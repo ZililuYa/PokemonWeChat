@@ -44,14 +44,17 @@ export default {
       '^pages/poke/poke',
       'pages/skill/skill',
       'pages/menu/menu',
+      'pages/about/about',
+      'pages/logs/logs',
+      'pages/restraint/restraint',
       'pages/character/character'
     ], // 页面前带有 ^ 符号的，会被编译成首页，其他页面可以选填，我们会自动把 webpack entry 里面的入口页面加进去
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#201f25',
       navigationBarTitleText: '神奇宝贝图鉴百科',
-      navigationBarTextStyle: '#fff',
-      enablePullDownRefresh: true
-    }
+      navigationBarTextStyle: '#fff'
+    },
+    enablePullDownRefresh: true
   }
 }

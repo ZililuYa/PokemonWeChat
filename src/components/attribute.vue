@@ -100,6 +100,10 @@
     text-align: center;
     border-radius: 30px;
   }
+  .width-max {
+    width: 80px !important;
+    font-size: 10px;
+  }
 
   .attribute-sx1 {
     background-color: #BBBBAA;

@@ -18,7 +18,7 @@
                     <!--</span>-->
       <!--<p class="weui-tabbar__label">特性</p>-->
     <!--</a>-->
-    <a href="javascript:;" :class="'weui-tabbar__item     '+on4">
+    <a :class="'weui-tabbar__item     '+on4">
                     <span style="display: inline-block;position: relative;">
                         <span class="sprite-icon sprite-icon-750"></span>
                     </span>

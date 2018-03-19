@@ -3,7 +3,7 @@
     <div class="page home js_show  page__tab">
       <div class="page__bd">
         <div class="weui-cells">
-          <a class="weui-cell weui-cell_access" href="javascript:;" v-for="(i, k) in data">
+          <a class="weui-cell weui-cell_access" v-for="(i, k) in data">
             <div class="weui-cell__bd">
               <p> {{i.name}}</p>
             </div>
@@ -12,10 +12,10 @@
               <attribute :text="i.y" :cName="color3"></attribute>
               <!--<attribute :text="i.y"></attribute>-->
             </div>
-            <span class="" v-if="!i.x">
+            <div class="" v-if="!i.x">
               <attribute :text="'无变化'" :cName="color1"></attribute>
               <attribute :text="'无变化'" :cName="color1"></attribute>
-            </span>
+            </div>
           </a>
         </div>
       </div>
