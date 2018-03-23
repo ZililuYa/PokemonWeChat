@@ -4,7 +4,7 @@
       <div class="page__bd">
         <div class="weui-cells__title">精灵宝可梦</div>
         <div class="weui-cells">
-          <a class="weui-cell weui-cell_access" @click="noOpen">
+          <a class="weui-cell weui-cell_access" href="/pages/features/features">
             <div class="weui-cell__hd">
               <span class="sprite-icon sprite-icon-377"></span>
             </div>

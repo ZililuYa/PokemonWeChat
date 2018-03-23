@@ -17,14 +17,12 @@
           <a @click="closeSearch" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
         </div>
         <div class="weui-cells" v-if="arrIf">
-          <a class="weui-cell weui-cell_access" :key="k" v-for="(i, k) in arr" :href="'/pages/skillDetail/skillDetail?id='+list[i].id">
+          <a class="weui-cell weui-cell_access" :key="k" v-for="(i, k) in arr" :href="'/pages/featuresDetail/featuresDetail?id='+list[i].id">
             <div class="weui-cell__bd">
               <p><span class="skill_id">{{ list[i].id }}</span> {{list[i].name}}</p>
             </div>
             <div class="">
-              <attribute :text="list[i].wl + '/' + list[i].mz+ '/'+list[i].pp" :cName="'attribute-sx9 width-max'"></attribute>
-              <attribute :text="list[i].sx"></attribute>
-              <attribute :text="list[i].fl"></attribute>
+              <attribute :text="list[i].zc + '     /     ' + list[i].yc" :cName="'attribute-sx9 width-max'"></attribute>
             </div>
           </a>
         </div>
@@ -61,7 +59,7 @@
         value: '',
         arr: [],
         loading: true,
-        list: this.$skill.rows
+        list: this.$features.rows
       }
     },
     components: {

@@ -16,7 +16,6 @@
           </form>
           <a @click="closeSearch" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
         </div>
-
         <div class="weui-cells__title text-center" v-show="!times1.length&&!times2.length&&!times3.length&&!times4.length&&!times5.length&&!times6.length&&!times7.length">没有相关的数据</div>
 
         <div class="weui-cells times" @click="opens('timesShow1')" v-if="times1.length">
@@ -28,14 +27,7 @@
           </a>
         </div>
         <div class="weui-cells" v-if="timesShow1">
-          <a class="weui-cell weui-cell_access" :key="k" v-for="(i, k) in times1">
-            <div class="weui-cell__bd">
-              <p>#{{ list[i].id }}<span :class="'sprite-icon   sprite-icon-' + list[i].id"></span> {{list[i].name}}</p>
-            </div>
-            <div class="">
-              <attribute :text="s" v-for="(s, x) in list[i].sx" :key="x"></attribute>
-            </div>
-          </a>
+          <tab :i="i" :list="list[i]" :key="k" v-for="(i, k) in times1"></tab>
         </div>
         <div class="weui-cells times" @click="opens('timesShow2')" v-if="times2.length">
           <a class="weui-cell weui-cell_access">
@@ -46,14 +38,7 @@
           </a>
         </div>
         <div class="weui-cells" v-if="timesShow2">
-          <a class="weui-cell weui-cell_access" :key="k" v-for="(i, k) in times2">
-            <div class="weui-cell__bd">
-              <p>#{{ list[i].id }}<span :class="'sprite-icon   sprite-icon-' + list[i].id"></span> {{list[i].name}}</p>
-            </div>
-            <div class="">
-              <attribute :text="s" v-for="(s, x) in list[i].sx" :key="x"></attribute>
-            </div>
-          </a>
+          <tab :i="i" :list="list[i]" :key="k" v-for="(i, k) in times2"></tab>
         </div>
         <div class="weui-cells times" @click="opens('timesShow3')" v-if="times3.length">
           <a class="weui-cell weui-cell_access">
@@ -64,14 +49,7 @@
           </a>
         </div>
         <div class="weui-cells" v-if="timesShow3">
-          <a class="weui-cell weui-cell_access" :key="k" v-for="(i, k) in times3">
-            <div class="weui-cell__bd">
-              <p>#{{ list[i].id }}<span :class="'sprite-icon   sprite-icon-' + list[i].id"></span> {{list[i].name}}</p>
-            </div>
-            <div class="">
-              <attribute :text="s" v-for="(s, x) in list[i].sx" :key="x"></attribute>
-            </div>
-          </a>
+          <tab :i="i" :list="list[i]" :key="k" v-for="(i, k) in times3"></tab>
         </div>
         <div class="weui-cells times" @click="opens('timesShow4')" v-if="times4.length">
           <a class="weui-cell weui-cell_access">
@@ -82,14 +60,7 @@
           </a>
         </div>
         <div class="weui-cells" v-if="timesShow4">
-          <a class="weui-cell weui-cell_access" :key="k" v-for="(i, k) in times4">
-            <div class="weui-cell__bd">
-              <p>#{{ list[i].id }}<span :class="'sprite-icon   sprite-icon-' + list[i].id"></span> {{list[i].name}}</p>
-            </div>
-            <div class="">
-              <attribute :text="s" v-for="(s, x) in list[i].sx" :key="x"></attribute>
-            </div>
-          </a>
+          <tab :i="i" :list="list[i]" :key="k" v-for="(i, k) in times4"></tab>
         </div>
         <div class="weui-cells times" @click="opens('timesShow5')" v-if="times5.length">
           <a class="weui-cell weui-cell_access">
@@ -100,14 +71,7 @@
           </a>
         </div>
         <div class="weui-cells" v-if="timesShow5">
-          <a class="weui-cell weui-cell_access" :key="k" v-for="(i, k) in times5">
-            <div class="weui-cell__bd">
-              <p>#{{ list[i].id }}<span :class="'sprite-icon   sprite-icon-' + list[i].id"></span> {{list[i].name}}</p>
-            </div>
-            <div class="">
-              <attribute :text="s" v-for="(s, x) in list[i].sx" :key="x"></attribute>
-            </div>
-          </a>
+          <tab :i="i" :list="list[i]" :key="k" v-for="(i, k) in times5"></tab>
         </div>
         <div class="weui-cells times" @click="opens('timesShow6')" v-if="times6.length">
           <a class="weui-cell weui-cell_access">
@@ -118,14 +82,7 @@
           </a>
         </div>
         <div class="weui-cells" v-if="timesShow6">
-          <a class="weui-cell weui-cell_access" :key="k" v-for="(i, k) in times6">
-            <div class="weui-cell__bd">
-              <p>#{{ list[i].id }}<span :class="'sprite-icon   sprite-icon-' + list[i].id"></span> {{list[i].name}}</p>
-            </div>
-            <div class="">
-              <attribute :text="s" v-for="(s, x) in list[i].sx" :key="x"></attribute>
-            </div>
-          </a>
+          <tab :i="i" :list="list[i]" :key="k" v-for="(i, k) in times6"></tab>
         </div>
         <div class="weui-cells times" @click="opens('timesShow7')" v-if="times7.length">
           <a class="weui-cell weui-cell_access">
@@ -136,15 +93,9 @@
           </a>
         </div>
         <div class="weui-cells" v-if="timesShow7">
-          <a class="weui-cell weui-cell_access" :key="k" v-for="(i, k) in times7">
-            <div class="weui-cell__bd">
-              <p>#{{ list[i].id }}<span :class="'sprite-icon   sprite-icon-' + list[i].id"></span> {{list[i].name}}</p>
-            </div>
-            <div class="">
-              <attribute :text="s" v-for="(s, x) in list[i].sx" :key="x"></attribute>
-            </div>
-          </a>
+          <tab :i="i" :list="list[i]" :key="k" v-for="(i, k) in times7"></tab>
         </div>
+
         <!--<div class="weui-cells__title text-center" v-show="loading">内容加载中···</div>-->
       </div>
     </div>
@@ -153,8 +104,7 @@
 
 <script>
   // Use Vuex
-  //  import tab from '@/components/tab.vue'
-  import attribute from '@/components/attribute.vue'
+  import tab from '@/components/tab.vue'
 
   export default {
     data () {
@@ -182,8 +132,7 @@
       }
     },
     components: {
-//      tab,
-      attribute
+      tab
     },
     computed: {},
     methods: {
@@ -202,7 +151,6 @@
         if (!this.search) {
           this.search = 'weui-search-bar_focusing'
           this.focus = true
-//          console.log(this.$refs.input)
 //          this.$refs.input.focus()
         }
       },
@@ -260,10 +208,6 @@
 
   .times {
 
-  }
-
-  .weui-cells {
-    border-bottom: 0.5px solid #e4e4e4;
   }
 
   .weui-cell_access .weui-cell__ft:after {

@@ -2,3 +2,4 @@ build/*.js
 config/*.js
 list.js
 skillList.js
+features.js

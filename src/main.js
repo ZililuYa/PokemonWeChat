@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App'
 import list from './utils/list'
 import skill from './utils/skillList'
+import features from './utils/features'
 // import '../static/css/index.css'
 import 'weui/dist/style/weui.css'
 import 'weui/dist/example/example.css'
@@ -12,6 +13,7 @@ Vue.config.productionTip = false
 App.mpType = 'app'
 Vue.prototype.$list = list
 Vue.prototype.$skill = skill
+Vue.prototype.$features = features
 const app = new Vue(App)
 app.$mount()
 
@@ -46,6 +48,8 @@ export default {
       'pages/menu/menu',
       'pages/about/about',
       'pages/logs/logs',
+      'pages/features/features',
+      'pages/featuresDetail/featuresDetail',
       'pages/restraint/restraint',
       'pages/character/character'
     ], // 页面前带有 ^ 符号的，会被编译成首页，其他页面可以选填，我们会自动把 webpack entry 里面的入口页面加进去

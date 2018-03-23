@@ -5,7 +5,6 @@
       const logs = wx.getStorageSync('logs') || []
       logs.unshift(Date.now())
       wx.setStorageSync('logs', logs)
-      console.log('app created and cache logs by setStorageSync')
     }
   }
 </script>
@@ -41,5 +40,23 @@
   }
   .weui-cells__title.text-center {
     margin-bottom: .77em;
+  }
+
+  .weui-cells {
+    border-bottom: 0.5px solid #e4e4e4;
+  }
+  .figure {
+    width: 20px;
+    height: 20px;
+  }
+
+  .p_zs {
+    font-size: 12px;
+    padding: 0 15px;
+  }
+
+  .p_list {
+    padding: 15px 0;
+    border-top: 0.5px solid #e4e4e4;
   }
 </style>

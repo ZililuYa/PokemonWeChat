@@ -53,7 +53,6 @@
       sao () {
         wx.scanCode({
           success: (res) => {
-            console.log(res)
           }
         })
       },
@@ -74,7 +73,6 @@
         })
       },
       clickHandle (msg, ev) {
-        console.log('clickHandle:', msg, ev)
       }
     },
 
