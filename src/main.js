@@ -3,6 +3,7 @@ import App from './App'
 import list from './utils/list'
 import skill from './utils/skillList'
 import features from './utils/features'
+import ability from './utils/ability'
 // import '../static/css/index.css'
 import 'weui/dist/style/weui.css'
 import 'weui/dist/example/example.css'
@@ -14,6 +15,7 @@ App.mpType = 'app'
 Vue.prototype.$list = list
 Vue.prototype.$skill = skill
 Vue.prototype.$features = features
+Vue.prototype.$nl = ability
 const app = new Vue(App)
 app.$mount()
 

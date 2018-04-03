@@ -3,3 +3,4 @@ config/*.js
 list.js
 skillList.js
 features.js
+ability.js

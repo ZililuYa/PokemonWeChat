@@ -59,4 +59,8 @@
     padding: 15px 0;
     border-top: 0.5px solid #e4e4e4;
   }
+  .skill_age {
+    width: 30px;
+    display: inline-block;
+  }
 </style>
