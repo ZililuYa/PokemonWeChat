@@ -6,7 +6,7 @@
           <form class="weui-search-bar__form" @click="openSearch">
             <div class="weui-search-bar__box">
               <i class="weui-icon-search"></i>
-              <input @confirm="runSearch" v-model="value" :focus="focus" type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
+              <input @confirm="runSearch" v-model="value" :focus="focus" confirm-type="search" type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
               <a @click="value=''" class="weui-icon-clear" id="searchClear"></a>
             </div>
             <label class="weui-search-bar__label" id="searchText" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">
@@ -17,86 +17,86 @@
           <a @click="closeSearch" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
         </div>
         <div class="weui-cells__title text-center" v-show="!times1.length&&!times2.length&&!times3.length&&!times4.length&&!times5.length&&!times6.length&&!times7.length">没有相关的数据</div>
-
-        <div class="weui-cells times" @click="opens('timesShow1')" v-if="times1.length">
-          <a class="weui-cell weui-cell_access">
+        <div v-if="!loading">
+          <div class="weui-cells times" @click="opens('timesShow1')" v-if="times1.length">
+            <a class="weui-cell weui-cell_access">
             <span class="weui-cell__bd">
               <p> <span class="sprite-icon sprite-icon-003"></span> 第一世代</p>
             </span>
-            <div :class="'weui-cell__ft    ' + timesShow1"></div>
-          </a>
-        </div>
-        <div class="weui-cells" v-if="timesShow1">
-          <tab :i="i" :list="list[i]" :key="k" v-for="(i, k) in times1"></tab>
-        </div>
-        <div class="weui-cells times" @click="opens('timesShow2')" v-if="times2.length">
-          <a class="weui-cell weui-cell_access">
+              <div :class="'weui-cell__ft    ' + timesShow1"></div>
+            </a>
+          </div>
+          <div class="weui-cells" v-if="timesShow1">
+            <tab :i="i" :list="list[i]" :key="k" v-for="(i, k) in times1"></tab>
+          </div>
+          <div class="weui-cells times" @click="opens('timesShow2')" v-if="times2.length">
+            <a class="weui-cell weui-cell_access">
             <span class="weui-cell__bd">
               <p> <span class="sprite-icon sprite-icon-154"></span> 第二世代</p>
             </span>
-            <div :class="'weui-cell__ft    ' + timesShow2"></div>
-          </a>
-        </div>
-        <div class="weui-cells" v-if="timesShow2">
-          <tab :i="i" :list="list[i]" :key="k" v-for="(i, k) in times2"></tab>
-        </div>
-        <div class="weui-cells times" @click="opens('timesShow3')" v-if="times3.length">
-          <a class="weui-cell weui-cell_access">
+              <div :class="'weui-cell__ft    ' + timesShow2"></div>
+            </a>
+          </div>
+          <div class="weui-cells" v-if="timesShow2">
+            <tab :i="i" :list="list[i]" :key="k" v-for="(i, k) in times2"></tab>
+          </div>
+          <div class="weui-cells times" @click="opens('timesShow3')" v-if="times3.length">
+            <a class="weui-cell weui-cell_access">
             <span class="weui-cell__bd">
               <p> <span class="sprite-icon sprite-icon-254"></span> 第三世代</p>
             </span>
-            <div :class="'weui-cell__ft    ' + timesShow3"></div>
-          </a>
-        </div>
-        <div class="weui-cells" v-if="timesShow3">
-          <tab :i="i" :list="list[i]" :key="k" v-for="(i, k) in times3"></tab>
-        </div>
-        <div class="weui-cells times" @click="opens('timesShow4')" v-if="times4.length">
-          <a class="weui-cell weui-cell_access">
+              <div :class="'weui-cell__ft    ' + timesShow3"></div>
+            </a>
+          </div>
+          <div class="weui-cells" v-if="timesShow3">
+            <tab :i="i" :list="list[i]" :key="k" v-for="(i, k) in times3"></tab>
+          </div>
+          <div class="weui-cells times" @click="opens('timesShow4')" v-if="times4.length">
+            <a class="weui-cell weui-cell_access">
             <span class="weui-cell__bd">
               <p> <span class="sprite-icon sprite-icon-389"></span> 第四世代</p>
             </span>
-            <div :class="'weui-cell__ft    ' + timesShow4"></div>
-          </a>
-        </div>
-        <div class="weui-cells" v-if="timesShow4">
-          <tab :i="i" :list="list[i]" :key="k" v-for="(i, k) in times4"></tab>
-        </div>
-        <div class="weui-cells times" @click="opens('timesShow5')" v-if="times5.length">
-          <a class="weui-cell weui-cell_access">
+              <div :class="'weui-cell__ft    ' + timesShow4"></div>
+            </a>
+          </div>
+          <div class="weui-cells" v-if="timesShow4">
+            <tab :i="i" :list="list[i]" :key="k" v-for="(i, k) in times4"></tab>
+          </div>
+          <div class="weui-cells times" @click="opens('timesShow5')" v-if="times5.length">
+            <a class="weui-cell weui-cell_access">
             <span class="weui-cell__bd">
               <p> <span class="sprite-icon sprite-icon-497"></span> 第五世代</p>
             </span>
-            <div :class="'weui-cell__ft    ' + timesShow5"></div>
-          </a>
-        </div>
-        <div class="weui-cells" v-if="timesShow5">
-          <tab :i="i" :list="list[i]" :key="k" v-for="(i, k) in times5"></tab>
-        </div>
-        <div class="weui-cells times" @click="opens('timesShow6')" v-if="times6.length">
-          <a class="weui-cell weui-cell_access">
+              <div :class="'weui-cell__ft    ' + timesShow5"></div>
+            </a>
+          </div>
+          <div class="weui-cells" v-if="timesShow5">
+            <tab :i="i" :list="list[i]" :key="k" v-for="(i, k) in times5"></tab>
+          </div>
+          <div class="weui-cells times" @click="opens('timesShow6')" v-if="times6.length">
+            <a class="weui-cell weui-cell_access">
             <span class="weui-cell__bd">
               <p> <span class="sprite-icon sprite-icon-652"></span> 第六世代</p>
             </span>
-            <div :class="'weui-cell__ft    ' + timesShow6"></div>
-          </a>
-        </div>
-        <div class="weui-cells" v-if="timesShow6">
-          <tab :i="i" :list="list[i]" :key="k" v-for="(i, k) in times6"></tab>
-        </div>
-        <div class="weui-cells times" @click="opens('timesShow7')" v-if="times7.length">
-          <a class="weui-cell weui-cell_access">
+              <div :class="'weui-cell__ft    ' + timesShow6"></div>
+            </a>
+          </div>
+          <div class="weui-cells" v-if="timesShow6">
+            <tab :i="i" :list="list[i]" :key="k" v-for="(i, k) in times6"></tab>
+          </div>
+          <div class="weui-cells times" @click="opens('timesShow7')" v-if="times7.length">
+            <a class="weui-cell weui-cell_access">
             <span class="weui-cell__bd">
               <p> <span class="sprite-icon sprite-icon-724"></span> 第七世代</p>
             </span>
-            <div :class="'weui-cell__ft    ' + timesShow7"></div>
-          </a>
+              <div :class="'weui-cell__ft    ' + timesShow7"></div>
+            </a>
+          </div>
+          <div class="weui-cells" v-if="timesShow7">
+            <tab :i="i" :list="list[i]" :key="k" v-for="(i, k) in times7"></tab>
+          </div>
         </div>
-        <div class="weui-cells" v-if="timesShow7">
-          <tab :i="i" :list="list[i]" :key="k" v-for="(i, k) in times7"></tab>
-        </div>
-
-        <!--<div class="weui-cells__title text-center" v-show="loading">内容加载中···</div>-->
+        <div class="weui-cells__title text-center" v-show="loading">内容加载中···</div>
       </div>
     </div>
   </div>
@@ -111,7 +111,7 @@
       return {
         focus: false,
         search: '',
-        loading: true,
+        loading: false,
         timesShow1: false,
         timesShow2: false,
         timesShow3: false,
@@ -139,6 +139,7 @@
       runSearch (e) {
         this.focus = false
         if (!this.value) return
+        this.loading = true
         this.init()
       },
       closeSearch () {
@@ -151,7 +152,8 @@
         if (!this.search) {
           this.search = 'weui-search-bar_focusing'
           this.focus = true
-//          this.$refs.input.focus()
+        } else {
+          this.focus = !this.focus
         }
       },
       validate (i, value) {
@@ -186,6 +188,10 @@
         for (let i = 721; i <= 806; i++) {
           if (this.validate(i, this.value)) this.times7.push(i)
         }
+        let vm = this
+        setTimeout(function () {
+          vm.loading = false
+        }, 300)
       },
       opens (name) {
         if (name !== 'timesShow1') this.timesShow1 = false

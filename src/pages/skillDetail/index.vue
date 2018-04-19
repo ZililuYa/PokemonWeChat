@@ -107,6 +107,9 @@
   import attribute from '@/components/attribute.vue'
 
   export default {
+    onLoad () {
+      this.data = false
+    },
     data () {
       return {
         id: undefined,
@@ -120,7 +123,6 @@
     components: {attribute},
     methods: {
       init () {
-        this.data = false
         this.id = this.$root.$mp.query.id
         this.poke = this.$skill.rows[this.id - 1]
         let uid = this.poke.id.trim()

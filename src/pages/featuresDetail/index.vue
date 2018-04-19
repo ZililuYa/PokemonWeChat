@@ -48,6 +48,9 @@
   import tab from '@/components/tab.vue'
 
   export default {
+    onLoad () {
+      this.data = false
+    },
     data () {
       return {
         id: undefined,
@@ -62,7 +65,6 @@
     components: {tab},
     methods: {
       init () {
-        this.data = false
         this.id = this.$root.$mp.query.id
         this.poke = this.$features.rows[this.id - 1]
         let uid = this.poke.id.trim()

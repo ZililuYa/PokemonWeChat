@@ -260,6 +260,9 @@
   import attribute from '@/components/attribute.vue'
 
   export default {
+    onLoad () {
+      this.data = false
+    },
     data () {
       return {
         arr: [],
@@ -303,7 +306,6 @@
         return Math.ceil((zz * 2) + 100 + 10)
       },
       init () {
-        this.data = false
         this.id = this.$root.$mp.query.id
         this.poke = this.$list.rows[this.id]
         this.nl = this.$nl.rows[this.id]
@@ -343,6 +345,7 @@
               for (let t in vm.cd) {
                 vm.cd[t].sid = parseInt(vm.cd[t].sid) - 1
               }
+              vm.fid = []
               for (let x in vm.data.typeArr) {
                 let f = vm.data.typeArr[x]
                 vm.fid.push(vm.getFid(f))

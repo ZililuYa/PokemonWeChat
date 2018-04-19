@@ -70,6 +70,7 @@
       runSearch (e) {
         this.focus = false
         if (!this.value) return
+        this.arrIf = false
         this.initSearch()
       },
       closeSearch () {
@@ -82,6 +83,8 @@
         if (!this.search) {
           this.search = 'weui-search-bar_focusing'
           this.focus = true
+        } else {
+          this.focus = !this.focus
         }
       },
       validate (i, value) {
@@ -99,9 +102,11 @@
         for (let i = 0; i < this.list.length; i++) {
           if (this.validate(i, this.value)) this.arr.push(i)
         }
-        this.loading = false
-        this.arrIf = false
-        this.arrIf = true
+        let vm = this
+        setTimeout(function () {
+          vm.loading = false
+          vm.arrIf = true
+        }, 300)
       }
     },
     mounted () {
